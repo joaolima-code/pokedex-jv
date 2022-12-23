@@ -4,6 +4,7 @@ import 'package:fluttergh/app/core/helpers/number.dart';
 
 import 'package:fluttergh/app/core/helpers/string.dart';
 import 'package:fluttergh/app/core/widgets/custom_bar_stats.dart';
+import 'package:fluttergh/app/core/widgets/custom_infos_card.dart';
 import 'package:fluttergh/app/core/widgets/custom_type_pokemon.dart';
 import 'package:fluttergh/app/modules/data/home/domain/entities/pokemon.dart';
 import 'package:fluttergh/app/modules/view/home/presentation/helpers/colors_helper.dart';
@@ -20,6 +21,13 @@ class DetailsInfosPokemon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    double valuePecentage = 100;
+
+    for (final stats in pokemon.stats) {
+      if (stats.baseStat > valuePecentage) {
+        valuePecentage = (valuePecentage * 1.25);
+      }
+    }
 
     return Padding(
       padding: EdgeInsets.symmetric(
@@ -29,6 +37,7 @@ class DetailsInfosPokemon extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // Nome pokemon
           Text(
             StringHelper.upperCasePrimary(pokemon.name),
             style: const TextStyle(
@@ -36,14 +45,16 @@ class DetailsInfosPokemon extends StatelessWidget {
               fontWeight: FontWeight.w500,
             ),
           ),
+          // Id pokemon
           Text(
-            'N° 00${pokemon.id}',
+            StringHelper.normalizerId(pokemon.id),
             style: const TextStyle(
               fontSize: 14,
               fontWeight: FontWeight.w400,
             ),
           ),
           SizedBox(height: size.height * 0.01),
+          // Tipos do pokemon
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
@@ -54,97 +65,32 @@ class DetailsInfosPokemon extends StatelessWidget {
                   : Container(),
             ],
           ),
+          // Infos
           Padding(
             padding: EdgeInsets.symmetric(
               vertical: size.height * 0.04,
             ),
             child: Column(
               children: [
+                // Informações biologicas
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    SizedBox(
-                      width: size.width * 0.35,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              SvgPicture.asset(
-                                'assets/pictures/weight.svg',
-                                color: Colors.grey.shade500,
-                                width: size.width * 0.06,
-                              ),
-                              SizedBox(width: size.width * 0.03),
-                              const Text(
-                                'Peso',
-                                textAlign: TextAlign.end,
-                                style: TextStyle(
-                                  fontSize: 25,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.grey,
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: size.height * 0.025),
-                          Text(
-                            NumberHelper.convertWeightEHeight(pokemon.weight) +
-                                ' kg',
-                            textAlign: TextAlign.end,
-                            style: const TextStyle(
-                              fontSize: 25,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.black87,
-                            ),
-                          )
-                        ],
-                      ),
+                    CustomInfoCard(
+                      icon: 'assets/pictures/weight.svg',
+                      title: 'Peso',
+                      value: pokemon.weight,
+                      complementValue: 'kg',
                     ),
-                    SizedBox(
-                      width: size.width * 0.43,
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              SvgPicture.asset(
-                                'assets/pictures/height.svg',
-                                color: Colors.grey.shade500,
-                                width: size.width * 0.06,
-                              ),
-                              SizedBox(width: size.width * 0.03),
-                              const Text(
-                                'Altura',
-                                textAlign: TextAlign.end,
-                                style: TextStyle(
-                                  fontSize: 25,
-                                  fontWeight: FontWeight.w500,
-                                  color: Colors.grey,
-                                ),
-                              ),
-                            ],
-                          ),
-                          SizedBox(height: size.height * 0.025),
-                          Text(
-                            NumberHelper.convertWeightEHeight(pokemon.height) +
-                                ' m',
-                            textAlign: TextAlign.end,
-                            style: const TextStyle(
-                              fontSize: 25,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.black87,
-                            ),
-                          )
-                        ],
-                      ),
+                    CustomInfoCard(
+                      icon: 'assets/pictures/height.svg',
+                      title: 'Altura',
+                      value: pokemon.height,
+                      complementValue: 'm',
                     ),
                   ],
                 ),
+                // Estatiticas pokemon
                 Padding(
                   padding: EdgeInsets.symmetric(
                     vertical: size.height * 0.06,
@@ -182,7 +128,8 @@ class DetailsInfosPokemon extends StatelessWidget {
                           color: StatsHelper.getColorStat(
                             stats: stats.statName,
                           ),
-                          percent: stats.baseStat / 100,
+                          percent: stats.baseStat / valuePecentage,
+                          valueCenter: stats.baseStat.toString(),
                           animation: true,
                         ),
                         SizedBox(height: size.height * 0.015),
@@ -192,7 +139,7 @@ class DetailsInfosPokemon extends StatelessWidget {
                 ),
               ],
             ),
-          )
+          ),
         ],
       ),
     );

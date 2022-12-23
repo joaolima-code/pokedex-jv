@@ -81,13 +81,6 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.play_for_work),
-        onPressed: () => Modular.to.navigate(
-          '/details/pokemon.name',
-          arguments: controller.store.listPokemon[0],
-        ),
-      ),
     );
   }
 }
