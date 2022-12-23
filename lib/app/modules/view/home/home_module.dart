@@ -6,8 +6,9 @@ import 'package:fluttergh/app/modules/data/home/service/datasources/pokedex_data
 import 'package:fluttergh/app/modules/data/home/service/repositories/pokedex_repository_impl.dart';
 import 'package:fluttergh/app/modules/view/home/controller/home_controller.dart';
 import 'package:fluttergh/app/modules/view/home/controller/home_store.dart';
+import 'package:fluttergh/app/modules/view/home/presentation/pages/poke_details.dart';
 
-import 'presentation/home.dart';
+import 'presentation/pages/home.dart';
 
 class HomeModule extends Module {
   @override
@@ -36,5 +37,9 @@ class HomeModule extends Module {
           '/',
           child: (context, args) => const HomePage(),
         ),
+        ChildRoute(
+          '/details/:name',
+          child: (context, args) => PokeDetails(pokemon: args.data),
+        )
       ];
 }

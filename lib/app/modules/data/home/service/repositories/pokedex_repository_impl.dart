@@ -8,6 +8,7 @@ import 'package:fluttergh/app/core/helpers/failure.dart';
 import 'package:fluttergh/app/modules/data/home/domain/entities/custom_search.dart';
 import 'package:fluttergh/app/modules/data/home/domain/entities/pokemon.dart';
 import 'package:fluttergh/app/modules/data/home/domain/entities/simple_pokemon.dart';
+import 'package:fluttergh/app/modules/data/home/domain/entities/stats.dart';
 import 'package:fluttergh/app/modules/data/home/domain/repositories/pokedex_repository.dart';
 import 'package:fluttergh/app/modules/data/home/service/datasources/pokedex_datasource.dart';
 import 'package:fluttergh/app/modules/data/home/service/dto/pokemon_dto.dart';
@@ -77,6 +78,10 @@ class PokedexRepositoryImpl implements PokedexRepository {
             types: pokemon.types!.map((e) => e.type!.name!).toList(),
             height: pokemon.height!,
             weight: pokemon.weight!,
+            stats: pokemon.stats!
+                .map((e) => StatsPokemon(
+                    baseStat: e.baseStat!, statName: e.stat!.name!))
+                .toList(),
           );
 
           return Right(result);

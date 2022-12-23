@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
 import 'package:fluttergh/app/modules/view/home/controller/home_controller.dart';
-import 'package:fluttergh/app/modules/view/home/presentation/widgets/card_pokemon.dart';
+import 'package:fluttergh/app/modules/view/home/presentation/widgets/home_card_pokemon.dart';
 
 class ListPokemon extends StatelessWidget {
   final HomeController controller;

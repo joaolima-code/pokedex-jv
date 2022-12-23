@@ -19,7 +19,9 @@ class HomeController {
   });
 
   Future<void> initData() async {
-    await fetchAllPokemon(store.offsetPosition);
+    if (store.listPokemon.isEmpty) {
+      await fetchAllPokemon(store.offsetPosition);
+    }
     // await fetchByIdPokemon(1);
   }
 
@@ -95,5 +97,13 @@ class HomeController {
     store.listPokemon.sort(
       (a, b) => a.id.compareTo(b.id),
     );
+  }
+
+  void cleanData() {
+    store.offsetPosition = 0;
+    store.limitPage = 20;
+
+    store.listSimplePokemon.clear();
+    store.listPokemon.clear();
   }
 }
