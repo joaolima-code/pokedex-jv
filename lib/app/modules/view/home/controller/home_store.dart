@@ -28,7 +28,7 @@ abstract class _HomeStoreBase with Store {
   int offsetPosition = 0;
 
   @observable
-  int limitPage = 100;
+  int limitPage = 20;
 
   @observable
   ObservableList<SimplePokemon> listSimplePokemon = ObservableList.of([]);

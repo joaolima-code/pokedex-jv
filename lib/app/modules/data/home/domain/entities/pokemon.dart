@@ -1,6 +1,6 @@
-import 'dart:convert';
-
 import 'package:equatable/equatable.dart';
+
+import 'package:fluttergh/app/modules/data/home/domain/entities/stats.dart';
 
 class Pokemon extends Equatable {
   final String name;
@@ -10,6 +10,7 @@ class Pokemon extends Equatable {
   final List<String> types;
   final int height;
   final int weight;
+  final List<StatsPokemon> stats;
 
   const Pokemon({
     required this.name,
@@ -19,6 +20,7 @@ class Pokemon extends Equatable {
     required this.types,
     required this.height,
     required this.weight,
+    required this.stats,
   });
 
   Pokemon copyWith({
@@ -29,6 +31,7 @@ class Pokemon extends Equatable {
     List<String>? types,
     int? height,
     int? weight,
+    List<StatsPokemon>? stats,
   }) {
     return Pokemon(
       name: name ?? this.name,
@@ -38,18 +41,7 @@ class Pokemon extends Equatable {
       types: types ?? this.types,
       height: height ?? this.height,
       weight: weight ?? this.weight,
-    );
-  }
-
-  factory Pokemon.fromMap(Map<String, dynamic> map) {
-    return Pokemon(
-      name: map['name'] ?? '',
-      id: map['id']?.toInt() ?? 0,
-      imagem: map['imagem'] ?? '',
-      icon: map['icon'] ?? '',
-      types: List<String>.from(map['types']),
-      height: map['height']?.toInt() ?? 0,
-      weight: map['weight']?.toInt() ?? 0,
+      stats: stats ?? this.stats,
     );
   }
 
@@ -62,6 +54,7 @@ class Pokemon extends Equatable {
       'types': types,
       'height': height,
       'weight': weight,
+      'stats': stats,
     };
   }
 
@@ -73,6 +66,7 @@ class Pokemon extends Equatable {
       types,
       height,
       weight,
+      stats,
     ];
   }
 }

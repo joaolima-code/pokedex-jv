@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:fluttergh/app/modules/view/home/controller/home_controller.dart';
-import 'package:fluttergh/app/modules/view/home/presentation/widgets/list_pokemon.dart';
+import 'package:fluttergh/app/modules/view/home/presentation/widgets/home_list_pokemon.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -26,6 +26,13 @@ class _HomePageState extends State<HomePage> {
     // });
     super.initState();
   }
+
+  // @override
+  // void dispose() {
+  //   controller.cleanData();
+
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -73,6 +80,13 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.play_for_work),
+        onPressed: () => Modular.to.navigate(
+          '/details/pokemon.name',
+          arguments: controller.store.listPokemon[0],
+        ),
       ),
     );
   }
