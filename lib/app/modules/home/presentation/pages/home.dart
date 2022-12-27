@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttergh/app/modules/home/presentation/controller/home_controller.dart';
 import 'package:fluttergh/app/modules/home/presentation/pages/widgets/home_list_pokemon.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -37,29 +39,32 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final colors = Theme.of(context).colorScheme;
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Pokedex',
-          style: TextStyle(
-            color: Colors.black,
+        title: Text(
+          'POKEDEX',
+          style: GoogleFonts.montserrat(
             fontSize: 28,
+            color: colors.onPrimary,
           ),
         ),
-        backgroundColor: Colors.white70,
+        backgroundColor: colors.primary,
         centerTitle: true,
       ),
       body: Stack(
         children: [
-          Center(
+          Positioned(
+            bottom: 0.7,
+            right: 0.01,
             child: Opacity(
-              child: Image.asset(
-                'assets/pictures/pokeball_dark.png',
-                height: 240,
-                width: 240,
+              child: SvgPicture.asset(
+                'assets/pictures/normal.svg',
+                height: size.height * 0.5,
+                color: Theme.of(context).colorScheme.onBackground,
               ),
-              opacity: 0.035,
+              opacity: 0.35,
             ),
           ),
           SingleChildScrollView(

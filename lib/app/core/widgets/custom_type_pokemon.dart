@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:fluttergh/app/core/helpers/string.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'package:fluttergh/app/core/helpers/pokemon/colors_helper.dart';
 import 'package:fluttergh/app/core/helpers/pokemon/icons_helper.dart';
+import 'package:fluttergh/app/core/helpers/string.dart';
 
 class CustomTypePokemon extends StatelessWidget {
   final String types;
+  final bool themeDark;
 
   const CustomTypePokemon({
     Key? key,
     required this.types,
+    required this.themeDark,
   }) : super(key: key);
 
   @override
@@ -21,7 +24,9 @@ class CustomTypePokemon extends StatelessWidget {
       padding: const EdgeInsets.all(0),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: ColorsHelper.getColorType(type: types),
+        color: !themeDark
+            ? ColorsHelper.getColorType(type: types)
+            : ColorsHelper.getColorTypeDark(type: types).withOpacity(0.8),
       ),
       child: Padding(
         padding: EdgeInsets.symmetric(
@@ -39,14 +44,17 @@ class CustomTypePokemon extends StatelessWidget {
                 padding: const EdgeInsets.all(2.0),
                 child: SvgPicture.asset(
                   IconsHelper.getIconType(type: types),
-                  color: ColorsHelper.getColorType(type: types),
+                  color: !themeDark
+                      ? ColorsHelper.getColorType(type: types)
+                      : ColorsHelper.getColorTypeDark(type: types)
+                          .withOpacity(0.8),
                 ),
               ),
             ),
             SizedBox(width: size.width * 0.015),
             Text(
               StringHelper.upperCasePrimary(types),
-              style: const TextStyle(
+              style: GoogleFonts.montserrat(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,
                   color: Colors.white),

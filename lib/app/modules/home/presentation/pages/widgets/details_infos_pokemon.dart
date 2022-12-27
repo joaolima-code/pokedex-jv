@@ -8,6 +8,7 @@ import 'package:fluttergh/app/core/widgets/custom_type_pokemon.dart';
 import 'package:fluttergh/app/modules/home/domain/entities/pokemon.dart';
 import 'package:fluttergh/app/core/helpers/pokemon/colors_helper.dart';
 import 'package:fluttergh/app/core/helpers/pokemon/stats_helper.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class DetailsInfosPokemon extends StatelessWidget {
   final Pokemon pokemon;
@@ -20,6 +21,8 @@ class DetailsInfosPokemon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final bool themeDark = Theme.of(context).brightness == Brightness.dark;
+
     double valuePecentage = 100;
 
     for (final stats in pokemon.stats) {
@@ -39,7 +42,7 @@ class DetailsInfosPokemon extends StatelessWidget {
           // Nome pokemon
           Text(
             StringHelper.upperCasePrimary(pokemon.name),
-            style: const TextStyle(
+            style: GoogleFonts.montserrat(
               fontSize: 30,
               fontWeight: FontWeight.w500,
             ),
@@ -47,20 +50,26 @@ class DetailsInfosPokemon extends StatelessWidget {
           // Id pokemon
           Text(
             StringHelper.normalizerId(pokemon.id),
-            style: const TextStyle(
+            style: GoogleFonts.montserrat(
               fontSize: 14,
               fontWeight: FontWeight.w400,
             ),
           ),
-          SizedBox(height: size.height * 0.01),
+          SizedBox(height: size.height * 0.02),
           // Tipos do pokemon
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              CustomTypePokemon(types: pokemon.types[0]),
+              CustomTypePokemon(
+                types: pokemon.types[0],
+                themeDark: themeDark,
+              ),
               SizedBox(width: size.width * 0.02),
               pokemon.types.length > 1
-                  ? CustomTypePokemon(types: pokemon.types[1])
+                  ? CustomTypePokemon(
+                      types: pokemon.types[1],
+                      themeDark: themeDark,
+                    )
                   : Container(),
             ],
           ),
@@ -80,12 +89,14 @@ class DetailsInfosPokemon extends StatelessWidget {
                       title: 'Peso',
                       value: pokemon.weight,
                       complementValue: 'kg',
+                      color: ColorsHelper.getColorType(type: pokemon.types[0]),
                     ),
                     CustomInfoCard(
                       icon: 'assets/pictures/height.svg',
                       title: 'Altura',
                       value: pokemon.height,
                       complementValue: 'm',
+                      color: ColorsHelper.getColorType(type: pokemon.types[0]),
                     ),
                   ],
                 ),
@@ -106,13 +117,12 @@ class DetailsInfosPokemon extends StatelessWidget {
                             width: size.width * 0.09,
                           ),
                           SizedBox(width: size.width * 0.02),
-                          const Text(
+                          Text(
                             'Estatísticas',
                             textAlign: TextAlign.end,
-                            style: TextStyle(
+                            style: GoogleFonts.montserrat(
                               fontSize: 26,
                               fontWeight: FontWeight.w500,
-                              color: Colors.black54,
                             ),
                           ),
                         ],

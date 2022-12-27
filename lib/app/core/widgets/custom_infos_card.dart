@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:fluttergh/app/core/helpers/number.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CustomInfoCard extends StatelessWidget {
   final String title;
   final String icon;
   final int value;
   final String? complementValue;
+  final Color color;
 
   const CustomInfoCard({
     Key? key,
@@ -15,6 +17,7 @@ class CustomInfoCard extends StatelessWidget {
     required this.icon,
     required this.value,
     this.complementValue,
+    required this.color,
   }) : super(key: key);
 
   @override
@@ -32,17 +35,15 @@ class CustomInfoCard extends StatelessWidget {
             children: [
               SvgPicture.asset(
                 icon,
-                color: Colors.grey.shade500,
                 width: size.width * 0.06,
+                color: color,
               ),
               SizedBox(width: size.width * 0.03),
               Text(
                 title,
-                textAlign: TextAlign.end,
-                style: const TextStyle(
+                style: GoogleFonts.montserrat(
                   fontSize: 25,
                   fontWeight: FontWeight.w500,
-                  color: Colors.grey,
                 ),
               ),
             ],
@@ -51,10 +52,9 @@ class CustomInfoCard extends StatelessWidget {
           Text(
             NumberHelper.convertWeightEHeight(value) + ' $complementValue',
             textAlign: TextAlign.end,
-            style: const TextStyle(
-              fontSize: 25,
+            style: GoogleFonts.montserrat(
+              fontSize: 22,
               fontWeight: FontWeight.w500,
-              color: Colors.black87,
             ),
           )
         ],

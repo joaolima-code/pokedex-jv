@@ -67,7 +67,7 @@ class ListPokemon extends StatelessWidget {
                 child: const Center(
                   child: Text(
                     'Nenhum pokemon encontrado',
-                    // style: AppTheme.textStyles.userNotFound.copyWith(
+                    // style: AppTheme.GoogleFonts.montserrats.userNotFound.copyWith(
                     //   fontSize: size.height * 0.03,
                     // ),
                   ),
