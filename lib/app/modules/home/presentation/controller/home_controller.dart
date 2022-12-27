@@ -1,9 +1,9 @@
 import 'package:flutter_modular/flutter_modular.dart';
 
 import 'package:fluttergh/app/core/helpers/enum/store_state.dart';
-import 'package:fluttergh/app/modules/data/home/domain/entities/custom_search.dart';
-import 'package:fluttergh/app/modules/data/home/domain/usecases/get_all_pokemon_usecase.dart';
-import 'package:fluttergh/app/modules/data/home/domain/usecases/get_by_id_pokemon_usecase.dart';
+import 'package:fluttergh/app/modules/home/domain/entities/custom_search.dart';
+import 'package:fluttergh/app/modules/home/domain/usecases/get_all_pokemon_usecase.dart';
+import 'package:fluttergh/app/modules/home/domain/usecases/get_by_id_pokemon_usecase.dart';
 
 import 'home_store.dart';
 

@@ -3,9 +3,10 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttergh/app/core/helpers/string.dart';
 
-import 'package:fluttergh/app/modules/data/home/domain/entities/pokemon.dart';
-import 'package:fluttergh/app/modules/view/home/controller/home_controller.dart';
-import 'package:fluttergh/app/modules/view/home/presentation/helpers/colors_helper.dart';
+import 'package:fluttergh/app/modules/home/domain/entities/pokemon.dart';
+import 'package:fluttergh/app/modules/home/presentation/controller/home_controller.dart';
+import 'package:fluttergh/app/core/helpers/pokemon/colors_helper.dart';
+import 'package:fluttergh/app/modules/home/presentation/pages/poke_details.dart';
 
 class CardPokemon extends StatelessWidget {
   final Pokemon pokemon;
@@ -22,9 +23,12 @@ class CardPokemon extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return GestureDetector(
-      onTap: () => Modular.to.navigate(
-        '/details/${pokemon.name}',
-        arguments: pokemon,
+      onTap: () => Modular.to.push(
+        MaterialPageRoute(
+          builder: (context) => PokeDetails(
+            pokemon: pokemon,
+          ),
+        ),
       ),
       child: Container(
         width: size.width * 0.43,

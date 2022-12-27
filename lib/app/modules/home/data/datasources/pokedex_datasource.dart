@@ -1,14 +1,13 @@
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import 'package:fluttergh/app/core/dio/authenticated_dio.dart';
 import 'package:fluttergh/app/core/errors/errors.dart';
 import 'package:fluttergh/app/core/helpers/failure.dart';
-import 'package:fluttergh/app/modules/data/home/domain/entities/custom_search.dart';
-import 'package:fluttergh/app/modules/data/home/service/dto/pokemon_dto.dart';
-import 'package:fluttergh/app/modules/data/home/service/dto/simple_pokemon_dto.dart';
+import 'package:fluttergh/app/modules/home/domain/entities/custom_search.dart';
+import 'package:fluttergh/app/modules/home/data/dto/pokemon_dto.dart';
+import 'package:fluttergh/app/modules/home/data/dto/simple_pokemon_dto.dart';
 
 part 'pokedex_datasource.g.dart';
 

@@ -7,7 +7,7 @@ import 'core/connectivity/external/repositories/connectivity_repositories_impl.d
 import 'core/dio/authenticated_user_interceptor.dart';
 import 'core/dio/dio_config.dart';
 
-import 'modules/view/home/home_module.dart';
+import 'modules/home/home_module.dart';
 
 class AppModule extends Module {
   @override

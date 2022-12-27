@@ -12,11 +12,11 @@ class _AppWidgetState extends State<AppWidget> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'My App Fluuter',
+      title: 'My Pokedex',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.blue),
       routeInformationParser: Modular.routeInformationParser,
       routerDelegate: Modular.routerDelegate,
+      theme: ThemeData(primarySwatch: Colors.blue),
     );
   }
 }

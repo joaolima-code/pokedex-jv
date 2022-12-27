@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:fluttergh/app/core/helpers/number.dart';
 
 import 'package:fluttergh/app/core/helpers/string.dart';
 import 'package:fluttergh/app/core/widgets/custom_bar_stats.dart';
 import 'package:fluttergh/app/core/widgets/custom_infos_card.dart';
 import 'package:fluttergh/app/core/widgets/custom_type_pokemon.dart';
-import 'package:fluttergh/app/modules/data/home/domain/entities/pokemon.dart';
-import 'package:fluttergh/app/modules/view/home/presentation/helpers/colors_helper.dart';
-import 'package:fluttergh/app/modules/view/home/presentation/helpers/stats_helper.dart';
+import 'package:fluttergh/app/modules/home/domain/entities/pokemon.dart';
+import 'package:fluttergh/app/core/helpers/pokemon/colors_helper.dart';
+import 'package:fluttergh/app/core/helpers/pokemon/stats_helper.dart';
 
 class DetailsInfosPokemon extends StatelessWidget {
   final Pokemon pokemon;

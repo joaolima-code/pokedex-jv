@@ -3,9 +3,9 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'package:fluttergh/app/core/widgets/custom_icon_button.dart';
-import 'package:fluttergh/app/modules/data/home/domain/entities/pokemon.dart';
-import 'package:fluttergh/app/modules/view/home/presentation/helpers/colors_helper.dart';
-import 'package:fluttergh/app/modules/view/home/presentation/helpers/icons_helper.dart';
+import 'package:fluttergh/app/modules/home/domain/entities/pokemon.dart';
+import 'package:fluttergh/app/core/helpers/pokemon/colors_helper.dart';
+import 'package:fluttergh/app/core/helpers/pokemon/icons_helper.dart';
 
 class DetailsImagePokemon extends StatelessWidget {
   final Pokemon pokemon;
@@ -65,7 +65,7 @@ class DetailsImagePokemon extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 CustomIconButton(
-                  onPressed: () => Modular.to.navigate('/'),
+                  onPressed: () => Modular.to.pop(),
                   icon: Icons.arrow_back_ios_new_rounded,
                 ),
                 CustomIconButton(

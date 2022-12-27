@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttergh/app/core/helpers/enum/store_state.dart';
-import 'package:fluttergh/app/modules/data/home/domain/entities/pokemon.dart';
-import 'package:fluttergh/app/modules/data/home/domain/entities/simple_pokemon.dart';
+import 'package:fluttergh/app/modules/home/domain/entities/pokemon.dart';
+import 'package:fluttergh/app/modules/home/domain/entities/simple_pokemon.dart';
 import 'package:mobx/mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 

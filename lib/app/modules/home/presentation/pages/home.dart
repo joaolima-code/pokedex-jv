@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:fluttergh/app/modules/view/home/controller/home_controller.dart';
-import 'package:fluttergh/app/modules/view/home/presentation/widgets/home_list_pokemon.dart';
+import 'package:fluttergh/app/modules/home/presentation/controller/home_controller.dart';
+import 'package:fluttergh/app/modules/home/presentation/pages/widgets/home_list_pokemon.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttergh/app/core/helpers/string.dart';
 
-import 'package:fluttergh/app/core/models/type.dart';
-import 'package:fluttergh/app/modules/view/home/presentation/helpers/colors_helper.dart';
-import 'package:fluttergh/app/modules/view/home/presentation/helpers/icons_helper.dart';
+import 'package:fluttergh/app/core/helpers/pokemon/colors_helper.dart';
+import 'package:fluttergh/app/core/helpers/pokemon/icons_helper.dart';
 
 class CustomTypePokemon extends StatelessWidget {
   final String types;

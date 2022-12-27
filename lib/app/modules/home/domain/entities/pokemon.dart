@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import 'package:fluttergh/app/modules/data/home/domain/entities/stats.dart';
+import 'package:fluttergh/app/modules/home/domain/entities/stats.dart';
 
 class Pokemon extends Equatable {
   final String name;

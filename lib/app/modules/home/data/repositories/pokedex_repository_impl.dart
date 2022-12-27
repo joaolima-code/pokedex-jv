@@ -5,14 +5,14 @@ import 'package:fluttergh/app/core/errors/errors.dart';
 import 'package:fluttergh/app/core/errors/messages.dart';
 import 'package:fluttergh/app/core/helpers/failure.dart';
 
-import 'package:fluttergh/app/modules/data/home/domain/entities/custom_search.dart';
-import 'package:fluttergh/app/modules/data/home/domain/entities/pokemon.dart';
-import 'package:fluttergh/app/modules/data/home/domain/entities/simple_pokemon.dart';
-import 'package:fluttergh/app/modules/data/home/domain/entities/stats.dart';
-import 'package:fluttergh/app/modules/data/home/domain/repositories/pokedex_repository.dart';
-import 'package:fluttergh/app/modules/data/home/service/datasources/pokedex_datasource.dart';
-import 'package:fluttergh/app/modules/data/home/service/dto/pokemon_dto.dart';
-import 'package:fluttergh/app/modules/data/home/service/dto/simple_pokemon_dto.dart';
+import 'package:fluttergh/app/modules/home/domain/entities/custom_search.dart';
+import 'package:fluttergh/app/modules/home/domain/entities/pokemon.dart';
+import 'package:fluttergh/app/modules/home/domain/entities/simple_pokemon.dart';
+import 'package:fluttergh/app/modules/home/domain/entities/stats.dart';
+import 'package:fluttergh/app/modules/home/domain/repositories/pokedex_repository.dart';
+import 'package:fluttergh/app/modules/home/data/datasources/pokedex_datasource.dart';
+import 'package:fluttergh/app/modules/home/data/dto/pokemon_dto.dart';
+import 'package:fluttergh/app/modules/home/data/dto/simple_pokemon_dto.dart';
 
 part 'pokedex_repository_impl.g.dart';
 

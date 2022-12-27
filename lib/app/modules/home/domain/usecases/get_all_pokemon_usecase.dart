@@ -4,9 +4,9 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:fluttergh/app/core/connectivity/domain/repositories/connectivity_repositorie.dart';
 import 'package:fluttergh/app/core/errors/errors.dart';
 import 'package:fluttergh/app/core/errors/messages.dart';
-import 'package:fluttergh/app/modules/data/home/domain/entities/custom_search.dart';
-import 'package:fluttergh/app/modules/data/home/domain/entities/simple_pokemon.dart';
-import 'package:fluttergh/app/modules/data/home/domain/repositories/pokedex_repository.dart';
+import 'package:fluttergh/app/modules/home/domain/entities/custom_search.dart';
+import 'package:fluttergh/app/modules/home/domain/entities/simple_pokemon.dart';
+import 'package:fluttergh/app/modules/home/domain/repositories/pokedex_repository.dart';
 
 part 'get_all_pokemon_usecase.g.dart';
 
