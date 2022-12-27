@@ -59,7 +59,7 @@ class DetailsImagePokemon extends StatelessWidget {
           Padding(
             padding: EdgeInsets.symmetric(
               horizontal: size.width * 0.025,
-              vertical: size.width * 0.025,
+              vertical: size.width * 0.1,
             ),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

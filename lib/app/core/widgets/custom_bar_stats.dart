@@ -8,6 +8,7 @@ class CustomBarStats extends StatelessWidget {
   final Color color;
   final double percent;
   final bool animation;
+  final String? valueCenter;
 
   const CustomBarStats({
     Key? key,
@@ -16,6 +17,7 @@ class CustomBarStats extends StatelessWidget {
     required this.color,
     required this.percent,
     required this.animation,
+    this.valueCenter,
   }) : super(key: key);
 
   @override
@@ -40,10 +42,18 @@ class CustomBarStats extends StatelessWidget {
           child: LinearPercentIndicator(
             animation: animation,
             animationDuration: 1500,
-            // width: size.width * 0.6,
             lineHeight: size.height * 0.025,
             percent: percent,
             progressColor: color,
+            center: valueCenter != null
+                ? Text(
+                    valueCenter!,
+                    style: const TextStyle(
+                      color: Colors.white60,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  )
+                : const Text(''),
             barRadius: const Radius.circular(10.0),
           ),
         ),

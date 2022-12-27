@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:fluttergh/app/core/helpers/number.dart';
@@ -35,17 +36,12 @@ class _PokeDetailsState extends State<PokeDetails> {
     return Scaffold(
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-            vertical: size.width * 0.05,
-          ),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              DetailsImagePokemon(pokemon: widget.pokemon),
-              DetailsInfosPokemon(pokemon: widget.pokemon),
-            ],
-          ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            DetailsImagePokemon(pokemon: widget.pokemon),
+            DetailsInfosPokemon(pokemon: widget.pokemon),
+          ],
         ),
       ),
     );
