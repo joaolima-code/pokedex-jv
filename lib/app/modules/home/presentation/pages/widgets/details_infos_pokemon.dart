@@ -75,8 +75,8 @@ class DetailsInfosPokemon extends StatelessWidget {
           ),
           // Infos
           Padding(
-            padding: EdgeInsets.symmetric(
-              vertical: size.height * 0.04,
+            padding: EdgeInsets.only(
+              top: size.height * 0.04,
             ),
             child: Column(
               children: [
@@ -102,8 +102,8 @@ class DetailsInfosPokemon extends StatelessWidget {
                 ),
                 // Estatiticas pokemon
                 Padding(
-                  padding: EdgeInsets.symmetric(
-                    vertical: size.height * 0.06,
+                  padding: EdgeInsets.only(
+                    top: size.height * 0.06,
                   ),
                   child: Column(
                     children: [

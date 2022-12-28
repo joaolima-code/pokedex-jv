@@ -55,16 +55,14 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Stack(
         children: [
-          Positioned(
-            bottom: 0.7,
-            right: 0.01,
+          Center(
             child: Opacity(
               child: SvgPicture.asset(
                 'assets/pictures/normal.svg',
-                height: size.height * 0.5,
+                height: size.height * 0.45,
                 color: Theme.of(context).colorScheme.onBackground,
               ),
-              opacity: 0.35,
+              opacity: 0.20,
             ),
           ),
           SingleChildScrollView(

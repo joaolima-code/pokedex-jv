@@ -67,10 +67,16 @@ class DetailsImagePokemon extends StatelessWidget {
                 CustomIconButton(
                   onPressed: () => Modular.to.pop(),
                   icon: Icons.arrow_back_ios_new_rounded,
+                  color: !themeDark
+                      ? Colors.white
+                      : Theme.of(context).colorScheme.surface,
                 ),
                 CustomIconButton(
                   onPressed: () {},
                   icon: Icons.favorite_border_rounded,
+                  color: !themeDark
+                      ? Colors.white
+                      : Theme.of(context).colorScheme.surface,
                 ),
               ],
             ),
