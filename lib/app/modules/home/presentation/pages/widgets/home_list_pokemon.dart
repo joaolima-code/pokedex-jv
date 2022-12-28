@@ -18,16 +18,7 @@ class ListPokemon extends StatelessWidget {
 
     return Observer(
       builder: (_) {
-        if (controller.store.isLoading) {
-          return Center(
-            child: Padding(
-              padding: EdgeInsets.only(top: size.height * 0.42),
-              child: const CircularProgressIndicator(),
-            ),
-          );
-        }
-
-        return controller.store.listPokemon.isNotEmpty
+        return controller.store.listPokemon.length > 10
             ? Padding(
                 padding: EdgeInsets.only(top: size.height * 0.02),
                 child: Column(
@@ -62,15 +53,10 @@ class ListPokemon extends StatelessWidget {
                   ],
                 ),
               )
-            : Padding(
-                padding: EdgeInsets.only(top: size.height * 0.75),
-                child: const Center(
-                  child: Text(
-                    'Nenhum pokemon encontrado',
-                    // style: AppTheme.textStyles.userNotFound.copyWith(
-                    //   fontSize: size.height * 0.03,
-                    // ),
-                  ),
+            : Center(
+                child: Padding(
+                  padding: EdgeInsets.only(top: size.height * 0.42),
+                  child: Image.asset('assets/pictures/pika_loader.gif'),
                 ),
               );
       },

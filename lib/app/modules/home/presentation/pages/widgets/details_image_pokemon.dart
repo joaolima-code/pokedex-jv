@@ -18,6 +18,7 @@ class DetailsImagePokemon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final bool themeDark = Theme.of(context).brightness == Brightness.dark;
 
     return SizedBox(
       height: size.height * 0.45,
@@ -26,8 +27,9 @@ class DetailsImagePokemon extends StatelessWidget {
           Container(
             height: size.height * 0.40,
             decoration: BoxDecoration(
-              color: ColorsHelper.getColorType(type: pokemon.types[0])
-                  .withOpacity(0.95),
+              color: !themeDark
+                  ? ColorsHelper.getColorType(type: pokemon.types[0])
+                  : ColorsHelper.getColorTypeDark(type: pokemon.types[0]),
               borderRadius: const BorderRadius.only(
                 bottomLeft: Radius.elliptical(250, 95),
                 bottomRight: Radius.elliptical(250, 95),
@@ -38,12 +40,10 @@ class DetailsImagePokemon extends StatelessWidget {
             padding: EdgeInsets.only(top: size.height * 0.05),
             child: Align(
               alignment: Alignment.topCenter,
-              child: Opacity(
-                child: SvgPicture.asset(
-                  IconsHelper.getIconType(type: pokemon.types[0]),
-                  height: size.height * 0.3,
-                ),
-                opacity: 0.8,
+              child: SvgPicture.asset(
+                IconsHelper.getIconType(type: pokemon.types[0]),
+                height: size.height * 0.3,
+                color: Theme.of(context).colorScheme.surface,
               ),
             ),
           ),
@@ -67,10 +67,16 @@ class DetailsImagePokemon extends StatelessWidget {
                 CustomIconButton(
                   onPressed: () => Modular.to.pop(),
                   icon: Icons.arrow_back_ios_new_rounded,
+                  color: !themeDark
+                      ? Colors.white
+                      : Theme.of(context).colorScheme.surface,
                 ),
                 CustomIconButton(
                   onPressed: () {},
                   icon: Icons.favorite_border_rounded,
+                  color: !themeDark
+                      ? Colors.white
+                      : Theme.of(context).colorScheme.surface,
                 ),
               ],
             ),

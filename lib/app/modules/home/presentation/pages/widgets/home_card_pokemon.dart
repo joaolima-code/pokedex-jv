@@ -7,6 +7,7 @@ import 'package:fluttergh/app/modules/home/domain/entities/pokemon.dart';
 import 'package:fluttergh/app/modules/home/presentation/controller/home_controller.dart';
 import 'package:fluttergh/app/core/helpers/pokemon/colors_helper.dart';
 import 'package:fluttergh/app/modules/home/presentation/pages/poke_details.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CardPokemon extends StatelessWidget {
   final Pokemon pokemon;
@@ -21,6 +22,7 @@ class CardPokemon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
+    final bool themeDark = Theme.of(context).brightness == Brightness.dark;
 
     return GestureDetector(
       onTap: () => Modular.to.push(
@@ -34,7 +36,9 @@ class CardPokemon extends StatelessWidget {
         width: size.width * 0.43,
         height: size.height * 0.25,
         decoration: BoxDecoration(
-            color: ColorsHelper.getColorType(type: pokemon.types[0]),
+            color: !themeDark
+                ? ColorsHelper.getColorType(type: pokemon.types[0])
+                : ColorsHelper.getColorTypeDark(type: pokemon.types[0]),
             borderRadius: const BorderRadius.all(
               Radius.circular(20),
             ),
@@ -51,11 +55,13 @@ class CardPokemon extends StatelessWidget {
               alignment: Alignment.bottomRight,
               child: Opacity(
                 child: Image.asset(
-                  'assets/pictures/pokeball_white.png',
+                  !themeDark
+                      ? 'assets/pictures/pokeball_white.png'
+                      : 'assets/pictures/pokeball_dark.png',
                   height: size.height * 0.2,
                   width: size.width * 0.30,
                 ),
-                opacity: 0.20,
+                opacity: 0.25,
               ),
             ),
             Align(
@@ -76,10 +82,11 @@ class CardPokemon extends StatelessWidget {
                 children: [
                   Text(
                     StringHelper.upperCasePrimary(pokemon.name),
-                    style: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white),
+                    style: GoogleFonts.montserrat(
+                      fontSize: 20,
+                      fontWeight: FontWeight.w600,
+                      color: Colors.white,
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(vertical: 4.0),
@@ -90,15 +97,18 @@ class CardPokemon extends StatelessWidget {
                           padding: const EdgeInsets.all(0),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(20),
-                              color: const Color.fromARGB(80, 255, 255, 255)),
+                              color: !themeDark
+                                  ? const Color.fromARGB(80, 255, 255, 255)
+                                  : const Color.fromARGB(25, 255, 255, 255)),
                           child: Padding(
                             padding: const EdgeInsets.all(6.0),
                             child: Text(
                               StringHelper.upperCasePrimary(pokemon.types[0]),
-                              style: const TextStyle(
-                                  fontSize: 14,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white),
+                              style: GoogleFonts.montserrat(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w400,
+                                color: Colors.white70,
+                              ),
                             ),
                           ),
                         ),
@@ -108,17 +118,21 @@ class CardPokemon extends StatelessWidget {
                                 padding: const EdgeInsets.all(0),
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(20),
-                                    color: const Color.fromARGB(
-                                        80, 255, 255, 255)),
+                                    color: !themeDark
+                                        ? const Color.fromARGB(
+                                            80, 255, 255, 255)
+                                        : const Color.fromARGB(
+                                            25, 255, 255, 255)),
                                 child: Padding(
                                   padding: const EdgeInsets.all(6.0),
                                   child: Text(
                                     StringHelper.upperCasePrimary(
                                         pokemon.types[1]),
-                                    style: const TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.bold,
-                                        color: Colors.white),
+                                    style: GoogleFonts.montserrat(
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.w400,
+                                      color: Colors.white70,
+                                    ),
                                   ),
                                 ),
                               )

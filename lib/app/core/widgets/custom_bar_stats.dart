@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 
 class CustomBarStats extends StatelessWidget {
@@ -31,10 +32,9 @@ class CustomBarStats extends StatelessWidget {
           child: Text(
             title,
             overflow: TextOverflow.ellipsis,
-            style: const TextStyle(
+            style: GoogleFonts.montserrat(
               fontSize: 22,
               fontWeight: FontWeight.w500,
-              color: Colors.black54,
             ),
           ),
         ),
@@ -45,12 +45,13 @@ class CustomBarStats extends StatelessWidget {
             lineHeight: size.height * 0.025,
             percent: percent,
             progressColor: color,
+            backgroundColor: color.withOpacity(0.15),
             center: valueCenter != null
                 ? Text(
                     valueCenter!,
-                    style: const TextStyle(
-                      color: Colors.white60,
+                    style: GoogleFonts.montserrat(
                       fontWeight: FontWeight.bold,
+                      color: Colors.black54,
                     ),
                   )
                 : const Text(''),
