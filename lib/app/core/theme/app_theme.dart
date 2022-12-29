@@ -28,9 +28,9 @@ class AppTheme {
       onBackground: Colors.white60,
       secondary: Colors.lightBlue.shade500,
       onSecondary: Colors.lightBlue.shade900,
-      error: const Color.fromARGB(80, 255, 255, 255),
+      error: const Color.fromARGB(40, 255, 255, 255),
       onError: Colors.red.shade900,
-      surface: const Color.fromARGB(80, 255, 255, 255),
+      surface: const Color.fromARGB(40, 255, 255, 255),
       onSurface: Colors.white,
     ),
   );

@@ -23,6 +23,7 @@ class CardPokemon extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final bool themeDark = Theme.of(context).brightness == Brightness.dark;
+    final theme = Theme.of(context);
 
     return GestureDetector(
       onTap: () => Modular.to.push(
@@ -96,17 +97,16 @@ class CardPokemon extends StatelessWidget {
                         Container(
                           padding: const EdgeInsets.all(0),
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: !themeDark
-                                  ? const Color.fromARGB(80, 255, 255, 255)
-                                  : const Color.fromARGB(25, 255, 255, 255)),
+                            borderRadius: BorderRadius.circular(20),
+                            color: theme.colorScheme.surface,
+                          ),
                           child: Padding(
                             padding: const EdgeInsets.all(6.0),
                             child: Text(
                               StringHelper.upperCasePrimary(pokemon.types[0]),
                               style: GoogleFonts.montserrat(
                                 fontSize: 14,
-                                fontWeight: FontWeight.w400,
+                                fontWeight: FontWeight.w500,
                                 color: Colors.white70,
                               ),
                             ),
@@ -117,12 +117,9 @@ class CardPokemon extends StatelessWidget {
                             ? Container(
                                 padding: const EdgeInsets.all(0),
                                 decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(20),
-                                    color: !themeDark
-                                        ? const Color.fromARGB(
-                                            80, 255, 255, 255)
-                                        : const Color.fromARGB(
-                                            25, 255, 255, 255)),
+                                  borderRadius: BorderRadius.circular(20),
+                                  color: theme.colorScheme.surface,
+                                ),
                                 child: Padding(
                                   padding: const EdgeInsets.all(6.0),
                                   child: Text(
@@ -130,7 +127,7 @@ class CardPokemon extends StatelessWidget {
                                         pokemon.types[1]),
                                     style: GoogleFonts.montserrat(
                                       fontSize: 14,
-                                      fontWeight: FontWeight.w400,
+                                      fontWeight: FontWeight.w500,
                                       color: Colors.white70,
                                     ),
                                   ),
