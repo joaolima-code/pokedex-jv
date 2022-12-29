@@ -43,7 +43,8 @@ class DetailsImagePokemon extends StatelessWidget {
               child: SvgPicture.asset(
                 IconsHelper.getIconType(type: pokemon.types[0]),
                 height: size.height * 0.3,
-                color: Theme.of(context).colorScheme.surface,
+                color:
+                    Theme.of(context).colorScheme.background.withOpacity(0.25),
               ),
             ),
           ),
@@ -69,14 +70,14 @@ class DetailsImagePokemon extends StatelessWidget {
                   icon: Icons.arrow_back_ios_new_rounded,
                   color: !themeDark
                       ? Colors.white
-                      : Theme.of(context).colorScheme.surface,
+                      : Theme.of(context).colorScheme.primary,
                 ),
                 CustomIconButton(
                   onPressed: () {},
                   icon: Icons.favorite_border_rounded,
                   color: !themeDark
                       ? Colors.white
-                      : Theme.of(context).colorScheme.surface,
+                      : Theme.of(context).colorScheme.primary,
                 ),
               ],
             ),
