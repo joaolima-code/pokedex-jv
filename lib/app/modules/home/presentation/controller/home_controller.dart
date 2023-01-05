@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import 'package:fluttergh/app/core/helpers/enum/store_state.dart';
@@ -44,13 +46,18 @@ class HomeController {
 
     result.fold(
       (failure) {
+        BotToast.showText(
+          text: failure.message,
+          align: const Alignment(0, 0.8),
+        );
+
         store.state = StoreStateEnum.error;
       },
       (listPokemon) {
         store.addPokemonList(listPokemon);
 
         for (final pokemon in listPokemon) {
-          final idPokemon = _selectIdUrl(pokemon.url);
+          final idPokemon = selectIdUrl(pokemon.url);
 
           fetchByIdPokemon(idPokemon);
         }
@@ -74,6 +81,11 @@ class HomeController {
 
     result.fold(
       (failure) {
+        BotToast.showText(
+          text: failure.message,
+          align: const Alignment(0, 0.8),
+        );
+
         store.state = StoreStateEnum.error;
       },
       (pokemon) async {
@@ -83,7 +95,7 @@ class HomeController {
     );
   }
 
-  int _selectIdUrl(String url) {
+  int selectIdUrl(String url) {
     final stringId = url
         .replaceAll('https://pokeapi.co/api/v2/pokemon/', '')
         .replaceAll('/', '');
