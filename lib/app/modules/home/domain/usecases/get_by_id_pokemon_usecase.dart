@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
-import 'package:fluttergh/app/core/connectivity/domain/repositories/connectivity_repositorie.dart';
+import 'package:fluttergh/app/core/connectivity/domain/service/connectivity_service.dart';
 import 'package:fluttergh/app/core/errors/errors.dart';
 import 'package:fluttergh/app/core/errors/messages.dart';
 import 'package:fluttergh/app/modules/home/domain/entities/pokemon.dart';

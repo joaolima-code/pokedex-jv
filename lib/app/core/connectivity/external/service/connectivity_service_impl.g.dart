@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'connectivity_repositories_impl.dart';
+part of 'connectivity_service_impl.dart';
 
 // **************************************************************************
 // InjectionGenerator

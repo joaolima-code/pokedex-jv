@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'connectivity_datasource.dart';
+part of 'connectivity_driver.dart';
 
 // **************************************************************************
 // InjectionGenerator

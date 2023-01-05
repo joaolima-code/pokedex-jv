@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:fluttergh/app/modules/home/domain/entities/pokemon.dart';
-import 'package:fluttergh/app/modules/home/presentation/pages/home.dart';
 import 'package:fluttergh/app/modules/home/presentation/pages/widgets/details_image_pokemon.dart';
 import 'package:fluttergh/app/modules/home/presentation/pages/widgets/details_infos_pokemon.dart';
 
@@ -20,8 +19,6 @@ class PokeDetails extends StatefulWidget {
 class _PokeDetailsState extends State<PokeDetails> {
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-
     return Scaffold(
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),

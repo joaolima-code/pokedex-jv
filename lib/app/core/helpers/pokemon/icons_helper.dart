@@ -1,5 +1,3 @@
-import 'package:flutter/material.dart';
-
 class IconsHelper {
   static String getIconType({
     required String type,
